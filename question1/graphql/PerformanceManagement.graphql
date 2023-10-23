@@ -1,0 +1,67 @@
+type User {
+   user_id: ID!
+   first_name: String
+   last_name: String
+   job_title: String
+   position: String
+   role: UserRole
+   kpis: [KPI]
+}
+
+type DepartmentObjective {
+   objective_id: ID!
+   description: String
+   weight: Float
+}
+
+type KPI {
+   kpi_id: ID!
+   user: User
+   objective: DepartmentObjective
+   kpi_description: String
+   unit: String
+   target: Float
+   actual_value: Float
+}
+
+enum UserRole {
+   HoD
+   Supervisor
+   Employee
+}
+
+type Query {
+   getUsers: [User]
+   getDepartmentObjectives: [DepartmentObjective]
+   getKPIs: [KPI]
+}
+
+type Mutation {
+   createUser(input: UserInput): User
+   createDepartmentObjective(input: ObjectiveInput): DepartmentObjective
+   createKPI(input: KPIInput): KPI
+   assignUserRole(user_id: ID!, role: UserRole): User
+   updateKPIValue(kpi_id: ID!, actual_value: Float): KPI
+}
+
+input UserInput {
+   first_name: String
+   last_name: String
+   job_title: String
+   position: String
+   role: UserRole
+}
+
+input ObjectiveInput {
+   description: String
+   weight: Float
+}
+
+input KPIInput {
+   user_id: ID
+   objective_id: ID
+   kpi_description: String
+   unit: String
+   target: Float
+   actual_value: Float
+}

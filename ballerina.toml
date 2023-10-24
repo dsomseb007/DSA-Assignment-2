@@ -1,0 +1,13 @@
+[dependencies]
+ballerina/http = "2.0.0"
+
+[project]
+org = "your_organization"
+version = "1.0.0"
+authors = ["Helmie"]
+
+[doc]
+id = "your_project_id"
+summary = "A Ballerina project for managing department objectives, KPIs, and user roles."
+
+

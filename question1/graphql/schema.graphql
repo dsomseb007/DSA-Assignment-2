@@ -1,0 +1,76 @@
+# Define a user type representing staff members
+type User {
+   user_id: ID!             # Unique ID of the user
+   first_name: String       # First name of the user
+   last_name: String        # Last name of the user
+   job_title: String        # Job title of the user
+   position: String         # Position within the department
+   role: UserRole           # User's role (HoD, Supervisor, Employee)
+   kpis: [KPI]              # List of Key Performance Indicators for the user
+}
+
+# Define a type for department objectives
+type DepartmentObjective {
+   objective_id: ID!        # Unique ID of the department objective
+   description: String     # Description of the objective
+   weight: Float           # Weight of the objective contributing to the department's goals
+}
+
+# Define a type for Key Performance Indicators (KPIs)
+type KPI {
+   kpi_id: ID!              # Unique ID of the KPI
+   user: User               # User associated with the KPI
+   objective: DepartmentObjective  # Department objective linked to the KPI
+   kpi_description: String  # Description of the KPI
+   unit: String             # Measurement unit for the KPI
+   target: Float            # Target value for the KPI
+   actual_value: Float      # Actual value of the KPI
+}
+
+# Define an enumeration for user roles
+enum UserRole {
+   HoD
+   Supervisor
+   Employee
+}
+
+# Define queries to fetch data
+type Query {
+   getUsers: [User]                    # Get a list of users
+   getDepartmentObjectives: [DepartmentObjective]  # Get department objectives
+   getKPIs: [KPI]                     # Get a list of KPIs
+}
+
+# Define mutations to create and update data
+type Mutation {
+   createUser(input: UserInput): User               # Create a new user
+   createDepartmentObjective(input: ObjectiveInput): DepartmentObjective  # Create a department objective
+   createKPI(input: KPIInput): KPI                   # Create a new KPI
+   assignUserRole(user_id: ID!, role: UserRole): User  # Assign a role to a user
+   updateKPIValue(kpi_id: ID!, actual_value: Float): KPI  # Update the actual value of a KPI
+}
+
+# Input type for creating a new user
+input UserInput {
+   first_name: String
+   last_name: String
+   job_title: String
+   position: String
+   role: UserRole
+}
+
+# Input type for creating a new department objective
+input ObjectiveInput {
+   description: String
+   weight: Float
+}
+
+# Input type for creating a new KPI
+input KPIInput {
+   user_id: ID
+   objective_id: ID
+   kpi_description: String
+   unit: String
+   target: Float
+   actual_value: Float
+}

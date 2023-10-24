@@ -1,0 +1,78 @@
+{
+    "users": [
+      {
+        "user_id": "user-1",
+        "first_name": "John",
+        "last_name": "Doe",
+        "job_title": "Lecturer",
+        "position": "Teaching",
+        "role": "HoD",
+        "kpis": []
+      },
+      {
+        "user_id": "user-2",
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "job_title": "Supervisor",
+        "position": "Research",
+        "role": "Supervisor",
+        "kpis": []
+      },
+      {
+        "user_id": "user-3",
+        "first_name": "Alice",
+        "last_name": "Johnson",
+        "job_title": "Researcher",
+        "position": "Research",
+        "role": "Employee",
+        "kpis": []
+      }
+    ],
+    "departmentObjectives": [
+      {
+        "objective_id": "objective-1",
+        "description": "Improve Student Progress",
+        "weight": 0.4
+      },
+      {
+        "objective_id": "objective-2",
+        "description": "Increase Research Output",
+        "weight": 0.3
+      },
+      {
+        "objective_id": "objective-3",
+        "description": "Enhance Innovative Teaching",
+        "weight": 0.3
+      }
+    ],
+    "kpis": [
+      {
+        "kpi_id": "kpi-1",
+        "user_id": "user-1",
+        "objective_id": "objective-1",
+        "kpi_description": "Student Progress Rate",
+        "unit": "Percentage",
+        "target": 90,
+        "actual_value": 88
+      },
+      {
+        "kpi_id": "kpi-2",
+        "user_id": "user-2",
+        "objective_id": "objective-2",
+        "kpi_description": "Research Publications",
+        "unit": "Count",
+        "target": 20,
+        "actual_value": 25
+      },
+      {
+        "kpi_id": "kpi-3",
+        "user_id": "user-3",
+        "objective_id": "objective-3",
+        "kpi_description": "Innovative Teaching Practices",
+        "unit": "Score",
+        "target": 8,
+        "actual_value": 9
+      }
+    ]
+  }
+  

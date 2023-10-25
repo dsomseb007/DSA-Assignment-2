@@ -1,7 +1,7 @@
 import ballerina/http;
 import ballerina/io;
 
-service /user-role-management on new http:Listener(8082) {
+service `../../user-role-management` on new http:Listener(8082) {
     resource function post createUserRole(http:Request req, http:Response res) {
         // Add logic to create a user role and store it in a JSON file
         io:println("Creating a user role");

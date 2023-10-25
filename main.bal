@@ -1,5 +1,3 @@
-bal openapi -i openapi-spec.yaml --mode service -o server
-
 import ballerina/http;
 import ballerina/graphql;
 import ballerina/io;
@@ -11,13 +9,13 @@ const string adminPassword = "password";
 
 // Constants for API requests
 const string getEmployeeScore = """
-    query getEmployeeScore($id: string) {
+    query getEmployeeScore($id: String!) {
         getEmployeeScore(id: $id)
     }
     """;
 
 const string createDepartmentObjectives = """
-    mutation createDepartmentObjectives($department: string, $objectives: [string]) {
+    mutation createDepartmentObjectives($department: String!, $objectives: [String]!) {
         createDepartmentObjectives(department: $department, objectives: $objectives)
     }
     """;

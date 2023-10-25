@@ -1,7 +1,7 @@
 import ballerina/http;
 import ballerina/io;
 
-service /department-objectives on new http:Listener(8080) {
+service `../../department-objectives` on new http:Listener(8080) {
     resource function post createObjective(http:Request req, http:Response res) {
         // Add logic to create a department objective and store it in a JSON file
         io:println("Creating a department objective");
